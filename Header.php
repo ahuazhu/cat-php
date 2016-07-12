@@ -51,14 +51,10 @@ class Header
 		$header .= $this->sessionToken;
 		$header .= "\t\n";
 
-		echo $header;
-
 		return $header;
 
 	}
 }
 
-$header = new Header();
-echo $header-> encode();
 
 ?>
