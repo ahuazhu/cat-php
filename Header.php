@@ -9,8 +9,8 @@ class Header
 	private $threadGroupName = "main-thread-group";
 	private $threadId = "main-thread";
 	private $threadName = "main-thread";
-	private $messageId="www-1234567";
-	private $parentMessageId ="www-754321";
+	private $messageId="www-0a0a69f2-407888-1234";
+	private $parentMessageId ="";
 	private $rootMessageId="";
 	private $sessionToken="";
 
