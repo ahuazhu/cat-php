@@ -7,18 +7,17 @@
 namespace Message;
 
 
-class Transaction extends AbstractMessage
+interface Transaction extends Message
 {
-    private $m_children = array();
+    function addChild($message);
 
-    /**
-     * @param Message $massage 子消息
-     */
-    public function addChild(Message $massage) {
-        array_push($this->m_children, $massage);
-    }
+    function getChildren();
 
-    public function hasChild() {
-        return count($this->m_children) > 0;
-    }
+    function getDurationInMicros();
+
+    function getDurationInMillis();
+
+    function hasChildren();
+
+    function isStandalone();
 }

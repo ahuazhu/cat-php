@@ -1,13 +1,13 @@
 <?php
 /**
  * @author: ahuazhu@gmail.com
- * Date: 16/7/18  下午5:26
+ * Date: 16/7/19  上午10:59
  */
 
 namespace Message;
 
 
-interface Event extends Message
+interface MessageManager
 {
 
 }
