@@ -15,6 +15,7 @@ interface MessageTree
     public function getMessage();
 
 
+    public function getVersion();
 
 
     public function getDomain();

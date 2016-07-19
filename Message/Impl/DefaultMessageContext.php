@@ -9,6 +9,8 @@ namespace Message\Impl;
 
 use Message\Initializer;
 use Message\MessageContext;
+use Transfer\Impl\SingleThreadSender;
+use Utils\Env;
 
 class DefaultMessageContext implements MessageContext, Initializer
 {
@@ -16,26 +18,62 @@ class DefaultMessageContext implements MessageContext, Initializer
 
     private $m_sender;
 
-    private $m_codec;
+    private $m_tree;
+
+    private $m_stack;
+
+    private $m_length;
+
+
+    public function __construct()
+    {
+        if (Env::isThreadSupport()) {
+
+        } else {
+            $this->m_sender = new SingleThreadSender();
+
+        }
+
+        $this->m_stack = new \SplStack();
+        $this->m_length = 0;
+        $this->m_messageTree = new DefaultMessageTree();
+    }
 
     public function init()
     {
-        // TODO: Implement init() method.
+        if (Env::isThreadSupport()) {
+
+        } else {
+            $this->m_sender = new SingleThreadSender();
+            $this->m_stack = new \SplStack();
+            $this->m_length = 0;
+        }
+
+        return $this;
     }
 
     public function add($message)
     {
-        // TODO: Implement add() method.
+        if ($this->m_stack->isEmpty()) {
+            $tree = $this->m_messageTree->copy();
+            $tree->setMessage($message);
+            $this->flush($tree);
+        } else {
+            $parent = $this->m_stack->top();
+            $parent->addChild($message);
+        }
+
+
     }
 
     public function end($messageManger, $transaction)
     {
-        // TODO: Implement end() method.
+        //TODO: Transaction end
     }
 
     public function start($transaction)
     {
-        // TODO: Implement start() method.
+        // TODO: Implement Transaction start() method.
     }
 
     public function getTree()
@@ -48,9 +86,9 @@ class DefaultMessageContext implements MessageContext, Initializer
         $this->m_messageTree = $messageTree;
     }
 
-    public function flush()
+    public function flush($tree)
     {
-        // TODO: Implement flush() method.
+        $this->m_sender->send($tree);
     }
 
 

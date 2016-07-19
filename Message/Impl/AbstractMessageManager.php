@@ -80,7 +80,7 @@ abstract class AbstractMessageManager implements MessageManager, Initializer
         if ($this->m_domain != null) {
             $ctx = new DefaultMessageContext($this->m_domain, $this->m_hostName, $this->m_ip);
         } else {
-            $ctx = new DefaultMessageContext("Unknown", m_hostName, "");
+            $ctx = new DefaultMessageContext("Unknown", $this->m_hostName, "");
         }
 
         $this->setLocalContext($ctx);

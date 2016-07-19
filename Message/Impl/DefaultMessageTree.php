@@ -40,7 +40,7 @@ class DefaultMessageTree implements MessageTree
         $tree->setDomain($this->getDomain());
         $tree->setHostName($this->getHostName());
         $tree->setIpAddress($this->getIpAddress());
-        $tree->m_message($this->getMessage());
+        $tree->setMessage($this->getMessage());
         $tree->setMessageId($this->getMessageId());
         $tree->setParentMessageId($this->getParentMessageId());
         $tree->setRootMessageId($this->getRootMessageId());
@@ -50,6 +50,11 @@ class DefaultMessageTree implements MessageTree
         $tree->setThreadName($this->getThreadName());
 
         return $tree;
+    }
+
+    public function getVersion()
+    {
+        return "PT1";
     }
 
     public function getDomain()

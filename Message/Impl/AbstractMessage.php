@@ -96,4 +96,14 @@ abstract class AbstractMessage implements Message
     {
         return $this->m_timestampInMillis;
     }
+
+    public function getMessageManager()
+    {
+        return $this->m_manager;
+    }
+
+    public function setComplete($completed)
+    {
+        $this->m_completed = $completed;
+    }
 }

@@ -7,7 +7,9 @@
 namespace Message\Impl;
 
 
-class DefaultEvent extends AbstractMessage
+use Message\Event;
+
+class DefaultEvent extends AbstractMessage implements Event
 {
 
     public function __construct($type, $name, $messageManager)
@@ -17,6 +19,10 @@ class DefaultEvent extends AbstractMessage
 
     function complete()
     {
-        // TODO: Implement complete() method.
+        parent::setComplete(true);
+
+        if (parent::getMessageManager() != null) {
+            parent::getMessageManager()->add($this);
+        }
     }
 }

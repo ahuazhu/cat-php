@@ -10,5 +10,5 @@ namespace Transfer;
 
 interface Sender
 {
-    function send($data);
+    function send($messageTree);
 }

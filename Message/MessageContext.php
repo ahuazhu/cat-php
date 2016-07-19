@@ -19,5 +19,5 @@ interface MessageContext
 
     public function setTree($messageTree);
 
-    public function flush();
+    public function flush($tree);
 }
