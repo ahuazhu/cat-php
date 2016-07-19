@@ -7,10 +7,21 @@
 namespace Message\Impl;
 
 
+use Message\Initializer;
 use Message\MessageContext;
 
-class DefaultMessageContext implements MessageContext
+class DefaultMessageContext implements MessageContext, Initializer
 {
+    private $m_messageTree;
+
+    private $m_sender;
+
+    private $m_codec;
+
+    public function init()
+    {
+        // TODO: Implement init() method.
+    }
 
     public function add($message)
     {
@@ -26,4 +37,21 @@ class DefaultMessageContext implements MessageContext
     {
         // TODO: Implement start() method.
     }
+
+    public function getTree()
+    {
+        return $this->m_messageTree;
+    }
+
+    public function setTree($messageTree)
+    {
+        $this->m_messageTree = $messageTree;
+    }
+
+    public function flush()
+    {
+        // TODO: Implement flush() method.
+    }
+
+
 }

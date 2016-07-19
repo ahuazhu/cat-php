@@ -14,4 +14,10 @@ interface MessageContext
     public function end($messageManger, $transaction);
 
     public function start($transaction);
+
+    public function getTree();
+
+    public function setTree($messageTree);
+
+    public function flush();
 }

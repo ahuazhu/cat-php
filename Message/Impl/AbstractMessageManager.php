@@ -8,7 +8,6 @@ namespace Message\Impl;
 
 
 use Message\Initializer;
-use Message\message;
 use Message\MessageManager;
 use Message\peek;
 use Message\Transaction;
@@ -51,7 +50,8 @@ abstract class AbstractMessageManager implements MessageManager, Initializer
 
     public function getThreadLocalMessageTree()
     {
-        // TODO: Implement getThreadLocalMessageTree() method.
+        $ctx = $this->getContext();
+        return $ctx->getTree();
     }
 
     public function hasContext()
@@ -70,12 +70,20 @@ abstract class AbstractMessageManager implements MessageManager, Initializer
 
     public function reset()
     {
-        // TODO: Implement reset() method.
+        return $this->removeLocalContext();
     }
 
     public function setup()
     {
-        // TODO: Implement setup() method.
+        $ctx = null;
+
+        if ($this->m_domain != null) {
+            $ctx = new DefaultMessageContext($this->m_domain, $this->m_hostName, $this->m_ip);
+        } else {
+            $ctx = new DefaultMessageContext("Unknown", m_hostName, "");
+        }
+
+        $this->setLocalContext($ctx);
     }
 
     public function start(Transaction $transaction)
@@ -83,7 +91,6 @@ abstract class AbstractMessageManager implements MessageManager, Initializer
         // TODO: Implement start() method.
 
         assert($transaction instanceof Transaction, "Transaction accept only");
-
 
 
     }
@@ -95,20 +102,17 @@ abstract class AbstractMessageManager implements MessageManager, Initializer
 
     private function getContext()
     {
-        if ($this->getLocalContext() != null) {
-            return $this->getLocalContext();
+        if ($this->getLocalContext() == null) {
+            $this->setup();
         }
 
-        if ($this->m_domain != null) {
-           $this->setLocalContext(new DefaultMessageContext($this->m_domain, $this->m_hostName, $this->m_ip));
-        } else {
-            $this->setLocalContext(new DefaultMessageContext("Unknown", m_hostName, ""));
-        }
+        return $this->getLocalContext();
 
-        return $this->m_context;
     }
 
     protected abstract function getLocalContext();
+
     protected abstract function setLocalContext($context);
+
     protected abstract function removeLocalContext();
 }

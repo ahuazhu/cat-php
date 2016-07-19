@@ -7,8 +7,6 @@
 namespace Message\Impl;
 
 
-use Message\Event;
-
 class DefaultEvent extends AbstractMessage
 {
 
