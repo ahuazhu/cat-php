@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="73f38330-5b8e-4025-8c07-579a5e2250be" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Utils/ThreadUtil.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="cat-php.iws" />
@@ -54,7 +53,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DefaultMessageProducer.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="DefaultMessageProducer.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Message/Impl/DefaultMessageProducer.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="225">
@@ -62,6 +61,26 @@
               <folding>
                 <element signature="e#6#68#0#PHP" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TimeUtil.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Utils/TimeUtil.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="135">
+              <caret line="12" column="1" selection-start-line="12" selection-start-column="1" selection-end-line="12" selection-end-column="1" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MessageCodec.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Codec/MessageCodec.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="135">
+              <caret line="12" column="1" selection-start-line="12" selection-start-column="1" selection-end-line="12" selection-end-column="1" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -110,28 +129,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DefaultMessageTree.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Message/Impl/DefaultMessageTree.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="15">
-              <caret line="36" column="5" selection-start-line="36" selection-start-column="5" selection-end-line="36" selection-end-column="5" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Env.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Utils/Env.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="14" column="1" selection-start-line="14" selection-start-column="1" selection-end-line="14" selection-end-column="1" />
-              <folding>
-                <element signature="e#6#69#0#PHP" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
     </leaf>
   </component>
   <component name="Git.Settings">
@@ -160,8 +157,8 @@
         <option value="$PROJECT_DIR$/Message/MessageManager.php" />
         <option value="$PROJECT_DIR$/Message/MessageIdFactory.php" />
         <option value="$PROJECT_DIR$/Message/Impl/DefaultMessageIdFactory.php" />
-        <option value="$PROJECT_DIR$/Message/Impl/DefaultMessageProducer.php" />
         <option value="$PROJECT_DIR$/Message/MessageProducer.php" />
+        <option value="$PROJECT_DIR$/Message/Impl/DefaultMessageProducer.php" />
       </list>
     </option>
   </component>
@@ -243,7 +240,7 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Message" />
+              <option name="myItemId" value="Transfer" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
@@ -258,10 +255,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="Message" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="NullImpl" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
@@ -375,12 +368,12 @@
       <option name="presentableId" value="Default" />
       <updated>1468828238313</updated>
       <workItem from="1468828239553" duration="257000" />
-      <workItem from="1468836076585" duration="8814000" />
+      <workItem from="1468836076585" duration="9301000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="9071000" />
+    <option name="totallyTimeSpent" value="9558000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1280" height="800" extended-state="0" />
@@ -546,14 +539,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Codec/MessageCodec.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="12" column="1" selection-start-line="12" selection-start-column="1" selection-end-line="12" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Codec/PlainTextCodec.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -688,6 +673,14 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Codec/MessageCodec.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="12" column="1" selection-start-line="12" selection-start-column="1" selection-end-line="12" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Message/Impl/DefaultMessageProducer.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="225">
@@ -695,6 +688,14 @@
           <folding>
             <element signature="e#6#68#0#PHP" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Utils/TimeUtil.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="12" column="1" selection-start-line="12" selection-start-column="1" selection-end-line="12" selection-end-column="1" />
+          <folding />
         </state>
       </provider>
     </entry>
