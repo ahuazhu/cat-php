@@ -27,4 +27,6 @@ interface Message
 
     function getStatus();
 
+    function getTimestamp();
+
 }

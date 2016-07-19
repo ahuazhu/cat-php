@@ -12,12 +12,12 @@ interface MessageTree
 
     public function copy();
 
+    public function getMessage();
+
+
+
 
     public function getDomain();
-
-
-    public function getFormatMessageId();
-
 
     public function getHostName();
 
@@ -25,10 +25,7 @@ interface MessageTree
 
     public function getSessionToken();
 
-    public function getMessage();
-
     public function getMessageId();
-
 
     public function getParentMessageId();
 
@@ -41,8 +38,6 @@ interface MessageTree
     public function getThreadName();
 
     public function setDomain($domain);
-
-    public function setFormatMessageId($messageId);
 
     public function setHostName($hostName);
 

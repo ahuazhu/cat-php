@@ -13,5 +13,3 @@ class Env
         return false;
     }
 }
-
-print Env::isThreadSupport();

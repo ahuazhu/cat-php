@@ -35,126 +35,133 @@ class DefaultMessageTree implements MessageTree
 
     public function copy()
     {
-        // TODO: Implement copy() method.
+        $tree = new DefaultMessageTree();
+
+        $tree->setDomain($this->getDomain());
+        $tree->setHostName($this->getHostName());
+        $tree->setIpAddress($this->getIpAddress());
+        $tree->m_message($this->getMessage());
+        $tree->setMessageId($this->getMessageId());
+        $tree->setParentMessageId($this->getParentMessageId());
+        $tree->setRootMessageId($this->getRootMessageId());
+        $tree->setSessionToken($this->getSessionToken());
+        $tree->setThreadGroupName($this->getThreadGroupName());
+        $tree->setThreadId($this->getThreadId());
+        $tree->setThreadName($this->getThreadName());
+
+        return $tree;
     }
 
     public function getDomain()
     {
-        // TODO: Implement getDomain() method.
+        return $this->m_domain;
     }
 
-    public function getFormatMessageId()
-    {
-        // TODO: Implement getFormatMessageId() method.
-    }
 
     public function getHostName()
     {
-        // TODO: Implement getHostName() method.
+        return $this->m_hostName;
     }
 
     public function getIpAddress()
     {
-        // TODO: Implement getIpAddress() method.
+        return $this->m_ipAddress;
     }
 
     public function getSessionToken()
     {
-        // TODO: Implement getSessionToken() method.
+        return $this->m_sessionToken;
     }
 
     public function getMessage()
     {
-        // TODO: Implement getMessage() method.
+        return $this->m_message;
     }
 
     public function getMessageId()
     {
-        // TODO: Implement getMessageId() method.
+       return $this->m_messageId;
     }
 
     public function getParentMessageId()
     {
-        // TODO: Implement getParentMessageId() method.
+        return $this->m_parentMessageId;
     }
 
     public function getRootMessageId()
     {
-        // TODO: Implement getRootMessageId() method.
+        return $this->m_rootMessageId;
     }
 
     public function getThreadGroupName()
     {
-        // TODO: Implement getThreadGroupName() method.
+       return $this->m_threadGroupName;
     }
 
     public function getThreadId()
     {
-        // TODO: Implement getThreadId() method.
+       return $this->m_threadId;
     }
 
     public function getThreadName()
     {
-        // TODO: Implement getThreadName() method.
+        return $this->m_threadName;
     }
 
     public function setDomain($domain)
     {
-        // TODO: Implement setDomain() method.
+        return $this->m_domain;
     }
 
-    public function setFormatMessageId($messageId)
-    {
-        // TODO: Implement setFormatMessageId() method.
-    }
 
     public function setHostName($hostName)
     {
-        // TODO: Implement setHostName() method.
+        $this->m_hostName = $hostName;
     }
 
     public function setIpAddress($ipAddress)
     {
-        // TODO: Implement setIpAddress() method.
+        $this->m_ipAddress = $ipAddress;
     }
 
     public function setMessage($message)
     {
-        // TODO: Implement setMessage() method.
+       $this->m_message = $message;
     }
 
     public function setMessageId($messageId)
     {
-        // TODO: Implement setMessageId() method.
+        $this->m_messageId = $messageId;
     }
 
     public function setSessionToken($session)
     {
-        // TODO: Implement setSessionToken() method.
+        $this->m_message = $session;
     }
 
     public function setParentMessageId($parentMessageId)
     {
-        // TODO: Implement setParentMessageId() method.
+        $this->m_parentMessageId = $parentMessageId;
     }
 
     public function setRootMessageId($rootMessageId)
     {
-        // TODO: Implement setRootMessageId() method.
+        $this->m_rootMessageId = $rootMessageId;
     }
 
-    public function setThreadGroupName($name)
+    public function setThreadGroupName($threadGroupName)
     {
-        // TODO: Implement setThreadGroupName() method.
+        $this->m_threadGroupName = $threadGroupName;
     }
 
     public function setThreadId($threadId)
     {
-        // TODO: Implement setThreadId() method.
+        $this->m_threadId = $threadId;
     }
+
 
     public function setThreadName($id)
     {
-        // TODO: Implement setThreadName() method.
+        $this->m_threadName = $id;
     }
 }

@@ -1,14 +1,17 @@
 <?php
 /**
  * @author: ahuazhu@gmail.com
- * Date: 16/7/19  上午11:58
+ * Date: 16/7/19  下午12:40
  */
 
 namespace Message\Impl;
 
 
-class DefaultTransaction extends AbstractMessage
+use Message\Event;
+
+class DefaultEvent extends AbstractMessage
 {
+
 
     function complete()
     {
