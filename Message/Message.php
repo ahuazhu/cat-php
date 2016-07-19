@@ -9,24 +9,24 @@ interface Message
 {
     const SUCCESS = "0";
 
-    function addData($key, $value);
+    public function addData($key, $value);
 
-    function getData();
+    public function getData();
 
-    function getType();
+    public function getType();
 
-    function getName();
+    public function getName();
 
-    function isComplete();
+    public function isComplete();
 
-    function complete();
+    public function complete();
 
-    function isSuccess();
+    public function isSuccess();
 
-    function setStatus($status);
+    public function setStatus($status);
 
-    function getStatus();
+    public function getStatus();
 
-    function getTimestamp();
+    public function getTimestamp();
 
 }

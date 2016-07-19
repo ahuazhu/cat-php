@@ -1,4 +1,5 @@
 <?php
+use Message\Impl\DefaultEvent;
 
 /**
  * Class Cat
@@ -21,7 +22,9 @@ class Cat
 
     }
 
-}
-$cat = new Cat();
+    static function newEvent($type, $name)
+    {
 
-$cat -> test();
+    }
+
+}

@@ -10,7 +10,7 @@ namespace Codec;
 class PlainTextCodec implements MessageCodec
 {
 
-    function encode($message)
+    public function encode($message)
     {
         // TODO: Implement encode() method.
     }

@@ -10,8 +10,12 @@ namespace Message\Impl;
 class DefaultTransaction extends AbstractMessage
 {
 
-    function complete()
+    public function complete()
     {
         // TODO: Implement complete() method.
+    }
+
+    public function addChild($message) {
+        //TODO: Implement addChild() method.
     }
 }

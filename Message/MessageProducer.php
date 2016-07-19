@@ -10,4 +10,5 @@ namespace Message;
 interface MessageProducer
 {
 
+    public function newEvent($type, $name);
 }

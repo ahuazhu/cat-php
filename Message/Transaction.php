@@ -9,15 +9,15 @@ namespace Message;
 
 interface Transaction extends Message
 {
-    function addChild($message);
+    public function addChild($message);
 
-    function getChildren();
+    public function getChildren();
 
-    function getDurationInMicros();
+    public function getDurationInMicros();
 
-    function getDurationInMillis();
+    public function getDurationInMillis();
 
-    function hasChildren();
+    public function hasChildren();
 
-    function isStandalone();
+    public function isStandalone();
 }

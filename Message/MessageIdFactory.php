@@ -9,9 +9,9 @@ namespace Message;
 
 interface MessageIdFactory
 {
-    function getNextId();
+    public function getNextId();
 
-    function setDomain($domain);
+    public function setDomain($domain);
 
-    function setIpAddress($ipAddress);
+    public function setIpAddress($ipAddress);
 }

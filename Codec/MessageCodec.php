@@ -9,5 +9,5 @@ namespace Codec;
 
 interface MessageCodec
 {
-    function encode($message);
+    public function encode($message);
 }

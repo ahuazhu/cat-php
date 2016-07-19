@@ -15,17 +15,17 @@ class DefaultMessageIdFactory implements MessageIdFactory
 
     private $m_ipAddress;
 
-    function getNextId()
+    public function getNextId()
     {
         // TODO: Implement getNextId() method.
     }
 
-    function setDomain($domain)
+    public function setDomain($domain)
     {
         $this->m_domain = $domain;
     }
 
-    function setIpAddress($ipAddress)
+    public function setIpAddress($ipAddress)
     {
         $this->m_ipAddress = $ipAddress;
     }

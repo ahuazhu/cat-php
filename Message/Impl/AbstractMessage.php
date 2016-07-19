@@ -24,8 +24,17 @@ abstract class AbstractMessage implements Message
 
     private $m_completed;
 
+    private $m_manager;
 
-    function addData($key, $value)
+    public function __construct($type, $name, $messageManager)
+    {
+        $this->m_type = $type;
+        $this->m_name = $name;
+        $this->m_manager = $messageManager;
+    }
+
+
+    public function addData($key, $value)
     {
         $pair = $key . '=' . $value;
 
@@ -37,7 +46,7 @@ abstract class AbstractMessage implements Message
 
     }
 
-    function getData()
+    public function getData()
     {
         if ($this->m_data == null) {
             return "";
@@ -46,44 +55,44 @@ abstract class AbstractMessage implements Message
         }
     }
 
-    function getType()
+    public function getType()
     {
         return $this->m_type;
     }
 
-    function getName()
+    public function getName()
     {
         return $this->m_name;
     }
 
-    function isComplete()
+    public function isComplete()
     {
         return $this->m_completed;
     }
 
-    abstract function complete();
+    public abstract function complete();
 
-    function isSuccess()
+    public function isSuccess()
     {
         return strcmp($this->m_status, Message::SUCCESS) == 0;
     }
 
-    function setStatus($status)
+    public function setStatus($status)
     {
         $this->m_status = $status;
     }
 
-    function getStatus()
+    public function getStatus()
     {
         return $this->m_status;
     }
 
-    function setTimestamp($timestamp)
+    public function setTimestamp($timestamp)
     {
         $this->m_timestampInMillis = $timestamp;
     }
 
-    function getTimestamp()
+    public function getTimestamp()
     {
         return $this->m_timestampInMillis;
     }
