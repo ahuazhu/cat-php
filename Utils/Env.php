@@ -9,7 +9,7 @@ namespace Utils;
 
 class Env
 {
-    static function isThreadSupport() {
+    public static function isThreadSupport() {
         return false;
     }
 }

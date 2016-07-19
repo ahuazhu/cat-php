@@ -7,6 +7,13 @@ use Message\Impl\DefaultEvent;
 class Cat
 {
 
+    private static $messageProducer;
+
+    private static function init() {
+        self::$messageProducer = new \Message\Impl\DefaultMessageProducer();
+        self::$messageProducer->init();
+    }
+
     public static function newTransaction()
     {
 
@@ -22,9 +29,13 @@ class Cat
 
     }
 
-    static function newEvent($type, $name)
+    public static function newEvent($type, $name)
     {
+        if (self::$messageProducer == null) {
+            self::init();
+        }
 
+        return self::$messageProducer->newEvent($type, $name);
     }
 
 }

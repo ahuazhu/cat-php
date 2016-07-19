@@ -12,9 +12,9 @@ use Message\Event;
 class DefaultEvent extends AbstractMessage
 {
 
-    public function __construct($type, $name)
+    public function __construct($type, $name, $messageManager)
     {
-        parent::__construct($type, $name);
+        parent::__construct($type, $name, $messageManager);
     }
 
     function complete()

@@ -3,8 +3,6 @@
  * @author: ahuazhu@gmail.com
  * Date: 16/7/19  下午2:23
  */
-//namespace Example;
-
 
 function __autoload($class)
 {
@@ -13,7 +11,7 @@ function __autoload($class)
 }
 
 
-$event = Cat::newEvent();
+$event = Cat::newEvent('TestType', 'TestName');
 
 $event->addData("test", "test");
 

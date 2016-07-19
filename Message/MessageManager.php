@@ -18,7 +18,7 @@ interface MessageManager
      *
      * @param transaction
      */
-    public function end($transaction);
+    public function end(Transaction $transaction);
 
     /**
      * Get peek transaction for current thread.
@@ -59,7 +59,7 @@ interface MessageManager
      * @param transaction
      * @param forked
      */
-    public function start($transaction);
+    public function start(Transaction $transaction);
 
 
     /**

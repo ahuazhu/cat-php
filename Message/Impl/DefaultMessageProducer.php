@@ -22,12 +22,18 @@ class DefaultMessageProducer implements MessageProducer, Initializer
             $this->init();
         }
 
+        if (!$this->m_messageManager->hasContext()) {
+            $this->m_messageManager->setUp();
+        }
 
+        $event = new DefaultEvent($type, $name, $this->m_messageManager);
+
+        return $event;
     }
 
     public function init()
     {
-        $this->m_messageManager = new DefaultMessageManager();
+        $this->m_messageManager = new SingleThreadMessageManager();
         $this->m_messageManager->init();
     }
 }
