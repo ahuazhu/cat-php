@@ -9,14 +9,18 @@ use Message\Impl\DefaultMessageIdFactory;
 function __autoload($class)
 {
     $path = str_replace("\\", "/", $class);
-    require_once($path.'.php');
+    require_once($path . '.php');
 }
 
 
-//$event = Cat::newEvent('TestType', 'TestName');
-//
-//$event->addData("test", "test");
-//
-//$event->complete();
+function test()
+{
+    throw new Exception;
+}
 
-Cat::logEvent('Test', 'TestName');
+try {
+    test();
+
+} catch (Exception $e) {
+    Cat::logError('Error', get_class($e), $e);
+}

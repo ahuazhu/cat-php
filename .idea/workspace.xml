@@ -2,25 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="73f38330-5b8e-4025-8c07-579a5e2250be" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Message/AbstractMessage.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Message/Initializer.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Message/MessageIdFactory.php" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Cat.php" afterPath="$PROJECT_DIR$/Cat.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Codec/PlainTextCodec.php" afterPath="$PROJECT_DIR$/Codec/PlainTextCodec.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/EventDemo.php" afterPath="$PROJECT_DIR$/EventDemo.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Message/Impl/AbstractMessage.php" afterPath="$PROJECT_DIR$/Message/Impl/AbstractMessage.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Message/Impl/AbstractMessageManager.php" afterPath="$PROJECT_DIR$/Message/Impl/AbstractMessageManager.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Message/Impl/DefaultMessageContext.php" afterPath="$PROJECT_DIR$/Message/Impl/DefaultMessageContext.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Message/Impl/DefaultMessageIdFactory.php" afterPath="$PROJECT_DIR$/Message/Impl/DefaultMessageIdFactory.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Message/Impl/DefaultMessageProducer.php" afterPath="$PROJECT_DIR$/Message/Impl/DefaultMessageProducer.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Message/Impl/DefaultMessageTree.php" afterPath="$PROJECT_DIR$/Message/Impl/DefaultMessageTree.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Message/Impl/SingleThreadMessageManager.php" afterPath="$PROJECT_DIR$/Message/Impl/SingleThreadMessageManager.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Message/Message.php" afterPath="$PROJECT_DIR$/Message/Message.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Sender.php" afterPath="$PROJECT_DIR$/Sender.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Transfer/Impl/SingleThreadSender.php" afterPath="$PROJECT_DIR$/Transfer/Impl/SingleThreadSender.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Utils/ThreadUtil.php" afterPath="$PROJECT_DIR$/Utils/ThreadUtil.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Utils/TimeUtil.php" afterPath="$PROJECT_DIR$/Utils/TimeUtil.php" />
     </list>
     <ignored path="cat-php.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -63,10 +47,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="TimeUtil.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="TimeUtil.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Utils/TimeUtil.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
+            <state relative-caret-position="194">
               <caret line="29" column="45" selection-start-line="29" selection-start-column="45" selection-end-line="29" selection-end-column="45" />
               <folding />
             </state>
@@ -93,18 +77,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DefaultMessageTree.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Message/Impl/DefaultMessageTree.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="286">
-              <caret line="47" column="66" selection-start-line="47" selection-start-column="66" selection-end-line="47" selection-end-column="66" />
-              <folding>
-                <element signature="e#97#126#0#PHP" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="Config.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Config/Config.php">
           <provider selected="true" editor-type-id="text-editor">
@@ -118,8 +90,8 @@
       <file leaf-file-name="EventDemo.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/EventDemo.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="20" column="0" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
+            <state relative-caret-position="264">
+              <caret line="24" column="12" selection-start-line="24" selection-start-column="12" selection-end-line="24" selection-end-column="12" />
               <folding>
                 <element signature="e#49#111#0#PHP" expanded="false" />
               </folding>
@@ -127,24 +99,34 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Cat.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Cat.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Cat.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="195">
-              <caret line="13" column="45" selection-start-line="13" selection-start-column="45" selection-end-line="13" selection-end-column="45" />
+            <state relative-caret-position="153">
+              <caret line="36" column="47" selection-start-line="36" selection-start-column="47" selection-end-line="36" selection-end-column="47" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DefaultMessageProducer.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Message/Impl/DefaultMessageProducer.php">
+      <file leaf-file-name="PlainTextCodec.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Codec/PlainTextCodec.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="315">
-              <caret line="21" column="9" selection-start-line="21" selection-start-column="9" selection-end-line="21" selection-end-column="9" />
+            <state relative-caret-position="136">
+              <caret line="89" column="32" selection-start-line="89" selection-start-column="32" selection-end-line="89" selection-end-column="32" />
               <folding>
-                <element signature="e#6#68#0#PHP" expanded="true" />
+                <element signature="e#89#107#0#PHP" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Core_c.php" pinned="false" current-in-tab="false">
+        <entry file="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/com/jetbrains/php/lang/psi/stubs/data/Core_c.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="123">
+              <caret line="284" column="26" selection-start-line="284" selection-start-column="26" selection-end-line="284" selection-end-column="26" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -189,8 +171,6 @@
         <option value="$PROJECT_DIR$/Message/Impl/DefaultMessageTree.php" />
         <option value="$PROJECT_DIR$/Message/Impl/IndexProducer.php" />
         <option value="$PROJECT_DIR$/Message/Impl/DefaultMessageIdFactory.php" />
-        <option value="$PROJECT_DIR$/Cat.php" />
-        <option value="$PROJECT_DIR$/EventDemo.php" />
         <option value="$PROJECT_DIR$/Codec/PlainTextCodec.php" />
         <option value="$PROJECT_DIR$/Message/Impl/AbstractMessage.php" />
         <option value="$PROJECT_DIR$/Utils/NetUtil.php" />
@@ -198,6 +178,8 @@
         <option value="$PROJECT_DIR$/Config/Config.php" />
         <option value="$PROJECT_DIR$/Transfer/Impl/SingleThreadSender.php" />
         <option value="$PROJECT_DIR$/Utils/TimeUtil.php" />
+        <option value="$PROJECT_DIR$/EventDemo.php" />
+        <option value="$PROJECT_DIR$/Cat.php" />
       </list>
     </option>
   </component>
@@ -491,12 +473,12 @@
       <option name="presentableId" value="Default" />
       <updated>1468828238313</updated>
       <workItem from="1468828239553" duration="257000" />
-      <workItem from="1468836076585" duration="42366000" />
+      <workItem from="1468836076585" duration="44335000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="42623000" />
+    <option name="totallyTimeSpent" value="44592000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -520,7 +502,7 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.42328766" sideWeight="0.49353796" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.27260274" sideWeight="0.49030694" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.65068495" sideWeight="0.49030694" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -850,16 +832,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Codec/PlainTextCodec.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="89" column="32" selection-start-line="89" selection-start-column="32" selection-end-line="89" selection-end-column="32" />
-          <folding>
-            <element signature="e#89#107#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Message/Impl/AbstractMessage.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="168">
@@ -885,14 +857,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="303">
           <caret line="30" column="0" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Cat.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="13" column="45" selection-start-line="13" selection-start-column="45" selection-end-line="13" selection-end-column="45" />
           <folding />
         </state>
       </provider>
@@ -941,16 +905,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/EventDemo.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="20" column="0" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
-          <folding>
-            <element signature="e#49#111#0#PHP" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Config/Config.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="450">
@@ -971,8 +925,44 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Utils/TimeUtil.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
+        <state relative-caret-position="194">
           <caret line="29" column="45" selection-start-line="29" selection-start-column="45" selection-end-line="29" selection-end-column="45" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/com/jetbrains/php/lang/psi/stubs/data/Core_c.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="123">
+          <caret line="284" column="26" selection-start-line="284" selection-start-column="26" selection-end-line="284" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Codec/PlainTextCodec.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="89" column="32" selection-start-line="89" selection-start-column="32" selection-end-line="89" selection-end-column="32" />
+          <folding>
+            <element signature="e#89#107#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/EventDemo.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="264">
+          <caret line="24" column="12" selection-start-line="24" selection-start-column="12" selection-end-line="24" selection-end-column="12" />
+          <folding>
+            <element signature="e#49#111#0#PHP" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Cat.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="36" column="47" selection-start-line="36" selection-start-column="47" selection-end-line="36" selection-end-column="47" />
           <folding />
         </state>
       </provider>

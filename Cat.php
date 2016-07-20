@@ -20,7 +20,7 @@ class Cat
 
     }
 
-    public static function logEvent($type, $name,  $key = null, $value = null, $status = \Message\Message::SUCCESS)
+    public static function logEvent($type, $name, $key = null, $value = null, $status = \Message\Message::SUCCESS)
     {
         $event = self::newEvent($type, $name);
         $event->setStatus($status);
@@ -28,9 +28,17 @@ class Cat
         $event->complete();
     }
 
-    public static function logError($type, $name, $error)
+    public static function logError($type, $name, Exception $error)
     {
+        $event = self::newEvent($type, $name);
+        $event->setStatus($error->getMessage());
 
+        $trace = "\n" . $error->getMessage() . "\n";
+        $trace .= $error->getTraceAsString() . "\n";
+
+        $event->addData('Trace', $trace);
+
+        $event->complete();
     }
 
     public static function newEvent($type, $name)
