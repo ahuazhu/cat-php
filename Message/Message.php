@@ -27,6 +27,6 @@ interface Message
 
     public function getStatus();
 
-    public function getTimestamp();
+    public function getTimestampInMillis();
 
 }

@@ -7,10 +7,9 @@
 namespace Message\Impl;
 
 
-use Message\Initializer;
 use Message\MessageProducer;
 
-class DefaultMessageProducer implements MessageProducer, Initializer
+class DefaultMessageProducer implements MessageProducer
 {
 
     private $m_messageManager;
@@ -34,6 +33,5 @@ class DefaultMessageProducer implements MessageProducer, Initializer
     public function init()
     {
         $this->m_messageManager = new SingleThreadMessageManager();
-        $this->m_messageManager->init();
     }
 }

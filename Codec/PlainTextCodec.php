@@ -9,6 +9,7 @@ namespace Codec;
 
 use Message\Event;
 use Message\Transaction;
+use Utils\TimeUtil;
 
 class PlainTextCodec implements MessageCodec
 {
@@ -49,6 +50,7 @@ class PlainTextCodec implements MessageCodec
 
     public function encodeMessage($message)
     {
+
         if ($message instanceof Transaction) {
             $data = '';
 
@@ -80,23 +82,30 @@ class PlainTextCodec implements MessageCodec
     private function encodeLine($message, $type, $policy)
     {
         $data = "";
-        $data .= $type . "\t";
+        $data .= $type;
 
 
         if ($type == 't' && $message instanceof Transaction) {
             $duration = $message->getDurationInMillis();
-            $data .= ($message->getTimestamp() + $duration) . "\t";
+            $data .= TimeUtil::format($message->getTimestampInMillis() + $duration) . "\t";
         } else {
-            $data .= $message->getTimestamp() . "\t";
+            $data .= TimeUtil::format($message->getTimestampInMillis()) . "\t";
         }
 
+
+        $data .= $message->getType() ."\t";
+        $data .= $message->getName() ."\t";
+
+
         if ($policy != Policy::WITHOUT_STATUS) {
+
             $data .= $message->getStatus() . "\t";
 
             if ($policy == Policy::WITH_DURATION && $message instanceof Transaction) {
                 $duration = $message->getDurationInMicros();
                 $data .= $duration . "us" . "\t";
             }
+
 
             $data .= $message->getData();
             $data .= "\t";

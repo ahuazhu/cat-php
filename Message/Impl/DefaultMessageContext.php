@@ -7,12 +7,11 @@
 namespace Message\Impl;
 
 
-use Message\Initializer;
 use Message\MessageContext;
 use Transfer\Impl\SingleThreadSender;
 use Utils\Env;
 
-class DefaultMessageContext implements MessageContext, Initializer
+class DefaultMessageContext implements MessageContext
 {
     private $m_messageTree;
 
@@ -25,7 +24,7 @@ class DefaultMessageContext implements MessageContext, Initializer
     private $m_length;
 
 
-    public function __construct()
+    public function __construct($domain, $hostName = null, $ipAddress = null)
     {
         if (Env::isThreadSupport()) {
 
@@ -36,7 +35,8 @@ class DefaultMessageContext implements MessageContext, Initializer
 
         $this->m_stack = new \SplStack();
         $this->m_length = 0;
-        $this->m_messageTree = new DefaultMessageTree();
+
+        $this->m_messageTree = new DefaultMessageTree($domain, $hostName, $ipAddress);
     }
 
     public function init()

@@ -8,6 +8,7 @@ namespace Message\Impl;
 
 
 use Message\Message;
+use Utils\TimeUtil;
 
 abstract class AbstractMessage implements Message
 {
@@ -28,20 +29,26 @@ abstract class AbstractMessage implements Message
 
     public function __construct($type, $name, $messageManager)
     {
+
         $this->m_type = $type;
         $this->m_name = $name;
         $this->m_manager = $messageManager;
+        $this->m_timestampInMillis = TimeUtil::currentTimeInMillis();
+
     }
 
 
     public function addData($key, $value)
     {
-        $pair = $key . '=' . $value;
+        if ($key != null) {
 
-        if ($this->m_data == null) {
-            $this->m_data = $pair;
-        } else {
-            $this->m_data = $this->m_data . '&' . $pair;
+            $pair = $key . "=" . $value;
+
+            if ($this->m_data == null) {
+                $this->m_data = $pair;
+            } else {
+                $this->m_data = $this->m_data . '&' . $pair;
+            }
         }
 
     }
@@ -92,7 +99,7 @@ abstract class AbstractMessage implements Message
         $this->m_timestampInMillis = $timestamp;
     }
 
-    public function getTimestamp()
+    public function getTimestampInMillis()
     {
         return $this->m_timestampInMillis;
     }
@@ -106,4 +113,6 @@ abstract class AbstractMessage implements Message
     {
         $this->m_completed = $completed;
     }
+
+
 }

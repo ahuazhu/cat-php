@@ -7,10 +7,7 @@
 namespace Message\Impl;
 
 
-use Message\Initializer;
-use Message\MessageManager;
 use Message\peek;
-use Message\Transaction;
 
 class SingleThreadMessageManager extends AbstractMessageManager
 {

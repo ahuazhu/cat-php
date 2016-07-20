@@ -7,7 +7,9 @@
 namespace Message\Impl;
 
 
+use Message\MessageIdFactory;
 use Message\MessageTree;
+use Utils\ThreadUtil;
 
 class DefaultMessageTree implements MessageTree
 {
@@ -33,9 +35,23 @@ class DefaultMessageTree implements MessageTree
 
     private $m_threadName;
 
+    public function __construct($domain, $hostName, $ipAddress)
+    {
+        $this->m_domain = $domain;
+        $this->m_hostName = $hostName;
+        $this->m_ipAddress = $ipAddress;
+
+        $this->m_threadGroupName = ThreadUtil::getThreadGroupName();
+        $this->m_threadId = ThreadUtil::getThreadId();
+        $this->m_threadName = ThreadUtil::getThreadName();
+
+        $this->m_messageId = DefaultMessageIdFactory::getNextId();
+
+    }
+
     public function copy()
     {
-        $tree = new DefaultMessageTree();
+        $tree = new DefaultMessageTree(null, null, null);
 
         $tree->setDomain($this->getDomain());
         $tree->setHostName($this->getHostName());
@@ -115,7 +131,7 @@ class DefaultMessageTree implements MessageTree
 
     public function setDomain($domain)
     {
-        return $this->m_domain;
+        $this->m_domain = $domain;
     }
 
 

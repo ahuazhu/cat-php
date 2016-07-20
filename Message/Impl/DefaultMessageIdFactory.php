@@ -7,26 +7,63 @@
 namespace Message\Impl;
 
 
-use Message\MessageIdFactory;
+use Config\Config;
+use Utils\NetUtil;
+use Utils\TimeUtil;
 
-class DefaultMessageIdFactory implements MessageIdFactory
+class DefaultMessageIdFactory
 {
-    private $m_domain;
+    private static $domain;
 
-    private $m_ipAddress;
+    private static $hexIpAddress;
 
-    public function getNextId()
+    public static function getNextId($domain=null)
     {
-        // TODO: Implement getNextId() method.
+        self::checkInit();
+
+        $currentHourStamp = self::currentHourStamp();
+        $index = self::getIndexProducer($currentHourStamp)->nextIndex();
+
+        $messageId = $domain == null ? self::$domain : $domain;
+        $messageId .= "-";
+        $messageId .= self::$hexIpAddress . "-";
+        $messageId.= $currentHourStamp . "-";
+        $messageId .= $index;
+
+		return $messageId;
+
     }
 
-    public function setDomain($domain)
+    private static function checkInit()
     {
-        $this->m_domain = $domain;
+        if (self::$domain == null) {
+            self::$domain = Config::getDomain();
+        }
+
+        if (self::$hexIpAddress == null) {
+            self::$hexIpAddress = NetUtil::getHexIpAddress();
+        }
     }
 
-    public function setIpAddress($ipAddress)
+
+    private static $indexProducer;
+
+    private static function currentHourStamp()
     {
-        $this->m_ipAddress = $ipAddress;
+        return (int) (TimeUtil::currentTimeInSecond() / 3600);
     }
+
+    private static function getIndexProducer($currentHourStamp)
+    {
+        if (self::$indexProducer == null) {
+            self::$indexProducer = new IndexProducer($currentHourStamp);
+        }
+
+        if (self::$indexProducer->getVersion() != $currentHourStamp) {
+            self::$indexProducer = new IndexProducer($currentHourStamp);
+        }
+
+        return self::$indexProducer;
+    }
+
 }

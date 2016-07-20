@@ -7,21 +7,26 @@
 namespace Message\Impl;
 
 
-use Message\Initializer;
+use Config\Config;
 use Message\MessageManager;
 use Message\peek;
 use Message\Transaction;
+use Utils\NetUtil;
 
-abstract class AbstractMessageManager implements MessageManager, Initializer
+abstract class AbstractMessageManager implements MessageManager
 {
 
     private $m_domain;
     private $m_hostName;
     private $m_ip;
 
-    public function init()
+
+    public function __construct()
     {
-        // TODO: Implement init() method.
+        $this->m_domain = Config::getDomain();
+        $this->m_hostName = NetUtil::getHostName();
+        $this->m_ip = NetUtil::getIpAddress();
+
     }
 
     public function add($message)
@@ -78,9 +83,10 @@ abstract class AbstractMessageManager implements MessageManager, Initializer
         $ctx = null;
 
         if ($this->m_domain != null) {
+
             $ctx = new DefaultMessageContext($this->m_domain, $this->m_hostName, $this->m_ip);
         } else {
-            $ctx = new DefaultMessageContext("Unknown", $this->m_hostName, "");
+            $ctx = new DefaultMessageContext("Unknown", $this->m_hostName, $this->m_ip);
         }
 
         $this->setLocalContext($ctx);
