@@ -41,6 +41,25 @@ class Cat
         $event->complete();
     }
 
+    public static function logMetricForCount($name, $quantity = 1)
+    {
+        //TODO implement logMetricForCount
+    }
+
+    public static function logMetricForDuration($name, $durationInMillis)
+    {
+        //TODO implement logMetricForDuration
+    }
+
+
+    public static function logMetricForSum($name, $value)
+    {
+        //TODO implement logMetricForSum
+    }
+
+
+
+
     public static function newEvent($type, $name)
     {
         if (self::$messageProducer == null) {
@@ -49,5 +68,6 @@ class Cat
 
         return self::$messageProducer->newEvent($type, $name);
     }
+
 
 }
