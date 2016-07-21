@@ -48,6 +48,7 @@ class SingleThreadSender implements Sender
 
 
 
+    //TODO cache the router for performance consider.
     private function fetchRouter($domain, $ipAddress)
     {
 

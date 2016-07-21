@@ -15,6 +15,7 @@ function __autoload($class)
 
 function test()
 {
+    return 1 / 0;
     throw new Exception;
 }
 
