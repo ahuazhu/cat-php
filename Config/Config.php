@@ -15,6 +15,7 @@ class Config
 
     private static $_inited = false;
 
+    //TODO Load domain from Project
     public static function getDomain() {
         self::checkInit();
 //        return self::$domain;
@@ -22,6 +23,7 @@ class Config
         return "zhengwen-zhu";
     }
 
+    //TODO load configurations from file
     public static function getServers() {
         self::checkInit();
 //        return self::$servers;
