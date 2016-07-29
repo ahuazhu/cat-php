@@ -17,18 +17,30 @@ class DefaultMessageProducer implements MessageProducer
 
     public function newEvent($type, $name)
     {
+        $this->checkInit();
+        $event = new DefaultEvent($type, $name, $this->m_messageManager);
+        return $event;
+    }
+
+    public function newTransaction($type, $name)
+    {
+        $this->checkInit();
+        $transaction = new DefaultTransaction($type, $name, $this->m_messageManager);
+        $this->m_messageManager->start($transaction);
+        return $transaction;
+    }
+
+
+    public function checkInit()
+    {
         if ($this->m_messageManager == null) {
             $this->init();
         }
-
         if (!$this->m_messageManager->hasContext()) {
             $this->m_messageManager->setUp();
         }
-
-        $event = new DefaultEvent($type, $name, $this->m_messageManager);
-
-        return $event;
     }
+
 
     public function init()
     {

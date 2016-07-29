@@ -94,11 +94,10 @@ abstract class AbstractMessageManager implements MessageManager
 
     public function start(Transaction $transaction)
     {
-        // TODO: Implement start() method.
-
         assert($transaction instanceof Transaction, "Transaction accept only");
 
-
+        $ctx = $this->getContext();
+        $ctx->start($transaction);
     }
 
     public function getDomain()

@@ -15,9 +15,9 @@ class Cat
         self::$messageProducer->init();
     }
 
-    public static function newTransaction()
+    public static function newTransaction($type, $name)
     {
-
+        return self::$messageProducer->newTransaction($type, $name);
     }
 
     public static function logEvent($type, $name, $key = null, $value = null, $status = \Message\Message::SUCCESS)

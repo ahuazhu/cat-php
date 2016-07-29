@@ -23,6 +23,8 @@ class DefaultMessageContext implements MessageContext
 
     private $m_length;
 
+    private $m_totalDurationInMicros;
+
 
     public function __construct($domain, $hostName = null, $ipAddress = null)
     {
@@ -68,12 +70,31 @@ class DefaultMessageContext implements MessageContext
 
     public function end($messageManger, $transaction)
     {
-        //TODO: Transaction end
+        if (!$this->m_stack->isEmpty()) {
+            $current = $this->m_stack->pop();
+
+            if ($this->m_stack->isEmpty()) {
+                $tree = $this->m_tree->copy();
+
+                $m_tree->setMessageId(null);
+                $m_tree->setMessage(null);
+                $messageManger->flush($tree);
+                return true;
+            }
+        }
     }
 
     public function start($transaction)
     {
-        // TODO: Implement Transaction start() method.
+        if (!$this->m_stack->isEmpty()) {
+
+            $parent = $this->m_stack->top();
+            $parent->addChild($transaction);
+        } else {
+            $this->m_tree->setMessage($transaction);
+        }
+
+        $this->m_stack->push($transaction);
     }
 
     public function getTree()
@@ -90,6 +111,8 @@ class DefaultMessageContext implements MessageContext
     {
         $this->m_sender->send($tree);
     }
+
+
 
 
 }

@@ -13,15 +13,28 @@ function __autoload($class)
 }
 
 
+interface Demo
+{
+    public function run();
+}
+
+
 function test()
 {
-    return 1 / 0;
     throw new Exception;
 }
 
 try {
-    test();
+    $a = test();
+
+    echo $a;
+
+    echo "hello, world!!!\n";
+
 
 } catch (Exception $e) {
     Cat::logError('Error', get_class($e), $e);
 }
+
+echo "hello, world\n";
+sleep(100000);
