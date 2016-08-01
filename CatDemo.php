@@ -1,5 +1,5 @@
 <?php
-use Message\Impl\DefaultMessageIdFactory;
+use Message\Message;
 
 /**
  * @author: ahuazhu@gmail.com
@@ -13,15 +13,10 @@ function __autoload($class)
 }
 
 
-interface Demo
-{
-    public function run();
-}
 
-
-class ExceptionTest implements Demo
+class ExceptionTest
 {
-    function test()
+    function methodThrowsException()
     {
         throw new Exception;
     }
@@ -29,7 +24,7 @@ class ExceptionTest implements Demo
     public function run()
     {
         try {
-            $a = test();
+            $a = $this->methodThrowsException();
             echo $a;
             echo "hello, world!!!\n";
         } catch (Exception $e) {
@@ -38,7 +33,11 @@ class ExceptionTest implements Demo
     }
 }
 
-class TransactionTest implements Demo
+
+$test = new ExceptionTest();
+$test->run();
+
+class TransactionTest
 {
     public function run()
     {
@@ -47,7 +46,7 @@ class TransactionTest implements Demo
         {
             $t1 = Cat::newTransaction('Invoke', 'method1()');
             sleep(2);
-            $t1->setStatus(\Message\Message::SUCCESS);
+            $t1->setStatus(Message::SUCCESS);
             $t1->addData("Hello", "world");
             $t1->complete();
         }
@@ -55,7 +54,7 @@ class TransactionTest implements Demo
         {
             $t2 = Cat::newTransaction('Invoke', 'method2()');
             sleep(2);
-            $t2->setStatus(\Message\Message::SUCCESS);
+            $t2->setStatus(Message::SUCCESS);
             $t2->complete();
         }
 
@@ -65,20 +64,20 @@ class TransactionTest implements Demo
             {
                 $t4 = Cat::newTransaction('Invoke', 'method4()');
                 sleep(2);
-                $t4->setStatus(\Message\Message::SUCCESS);
+                $t4->setStatus(Message::SUCCESS);
                 $t4->complete();
             }
 
-            $t3->setStatus(\Message\Message::SUCCESS);
+            $t3->setStatus(Message::SUCCESS);
             $t3->complete();
         }
 
-        $transaction->setStatus(\Message\Message::SUCCESS);
+        $transaction->setStatus(Message::SUCCESS);
         $transaction->addData("Hello, world!");
         $transaction->complete();
     }
 }
 
 
-$transaction = new TransactionTest();
-$transaction->run();
+$test = new TransactionTest();
+$test->run();
