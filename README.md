@@ -6,6 +6,8 @@
 ### Usage
 
 ```
+use Message\Message;
+
 
 function __autoload($class)
 {
@@ -14,9 +16,10 @@ function __autoload($class)
 }
 
 
+
 class ExceptionTest
 {
-    function test()
+    function methodThrowsException()
     {
         throw new Exception;
     }
@@ -24,7 +27,7 @@ class ExceptionTest
     public function run()
     {
         try {
-            $a = test();
+            $a = $this->methodThrowsException();
             echo $a;
             echo "hello, world!!!\n";
         } catch (Exception $e) {
@@ -33,10 +36,11 @@ class ExceptionTest
     }
 }
 
+
 $test = new ExceptionTest();
 $test->run();
 
-class TransactionTest implements Demo
+class TransactionTest
 {
     public function run()
     {
@@ -45,7 +49,7 @@ class TransactionTest implements Demo
         {
             $t1 = Cat::newTransaction('Invoke', 'method1()');
             sleep(2);
-            $t1->setStatus(\Message\Message::SUCCESS);
+            $t1->setStatus(Message::SUCCESS);
             $t1->addData("Hello", "world");
             $t1->complete();
         }
@@ -53,7 +57,7 @@ class TransactionTest implements Demo
         {
             $t2 = Cat::newTransaction('Invoke', 'method2()');
             sleep(2);
-            $t2->setStatus(\Message\Message::SUCCESS);
+            $t2->setStatus(Message::SUCCESS);
             $t2->complete();
         }
 
@@ -63,15 +67,15 @@ class TransactionTest implements Demo
             {
                 $t4 = Cat::newTransaction('Invoke', 'method4()');
                 sleep(2);
-                $t4->setStatus(\Message\Message::SUCCESS);
+                $t4->setStatus(Message::SUCCESS);
                 $t4->complete();
             }
 
-            $t3->setStatus(\Message\Message::SUCCESS);
+            $t3->setStatus(Message::SUCCESS);
             $t3->complete();
         }
 
-        $transaction->setStatus(\Message\Message::SUCCESS);
+        $transaction->setStatus(Message::SUCCESS);
         $transaction->addData("Hello, world!");
         $transaction->complete();
     }
@@ -80,5 +84,6 @@ class TransactionTest implements Demo
 
 $test = new TransactionTest();
 $test->run();
+
 
 ```
