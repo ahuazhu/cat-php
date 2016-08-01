@@ -111,7 +111,4 @@ class DefaultMessageContext implements MessageContext
         $this->m_sender->send($tree);
     }
 
-
-
-
 }

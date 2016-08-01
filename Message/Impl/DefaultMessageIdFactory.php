@@ -30,10 +30,6 @@ class DefaultMessageIdFactory
         $messageId .= self::$hexIpAddress . "-";
         $messageId .= $currentHourStamp . "-";
 
-
-        $threadId = ThreadUtil::getThreadId();
-
-        $index = $threadId << 32 | $index;
         $messageId .= $index;
 
 		return $messageId;

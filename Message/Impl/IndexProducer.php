@@ -28,6 +28,6 @@ class IndexProducer
 
     public function nextIndex()
     {
-        return $this->m_currentIndex ++;
+        return ++ $this->m_currentIndex;
     }
 }
