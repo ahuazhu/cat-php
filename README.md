@@ -1,7 +1,7 @@
 # cat-php
 
 ### About
-CAT was created by [Frankie Wu](https://github.com/qmwu2000) and [youyong205](https://github.com/youyong205)  in [DaZhongDianPing](http://www.dianping.com) (大众点评). This copy is ***translated*** from the Java version for PHP project.
+[CAT](https://github.com/dianping/cat) was created by [Frankie Wu](https://github.com/qmwu2000) and [youyong205](https://github.com/youyong205)  in [DaZhongDianPing](http://www.dianping.com) (大众点评). This copy is ***translated*** from the Java version for PHP project.
 
 ### Usage
 
