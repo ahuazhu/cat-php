@@ -9,6 +9,7 @@ namespace Message\Impl;
 
 use Config\Config;
 use Utils\NetUtil;
+use Utils\ThreadUtil;
 use Utils\TimeUtil;
 
 class DefaultMessageIdFactory
@@ -27,7 +28,12 @@ class DefaultMessageIdFactory
         $messageId = $domain == null ? self::$domain : $domain;
         $messageId .= "-";
         $messageId .= self::$hexIpAddress . "-";
-        $messageId.= $currentHourStamp . "-";
+        $messageId .= $currentHourStamp . "-";
+
+
+        $threadId = ThreadUtil::getThreadId();
+
+        $index = $threadId << 32 | $index;
         $messageId .= $index;
 
 		return $messageId;
