@@ -26,6 +26,7 @@ class SingleThreadSender implements Sender
 
     function send($messageTree)
     {
+        var_dump($messageTree);
         //TODO: performance consider, should keep the connection.
         $data = $this->m_codec->encode($messageTree);
         $len = strlen($data);
@@ -35,7 +36,14 @@ class SingleThreadSender implements Sender
 
         $_data = $len_bin . $data_bin;
 
+        var_dump($_data);
+
         list($ip, $port) = $this->fetchRouter($messageTree->getDomain(), $messageTree->getIpAddress());
+
+        echo $ip.':'.$port;
+
+        $ip = '127.0.0.1';
+        $port = 54321;
 
         $socket = socket_create(AF_INET, SOCK_STREAM, SOL_TCP);
         socket_connect($socket, $ip, $port);

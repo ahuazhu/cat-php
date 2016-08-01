@@ -13,8 +13,6 @@ use Utils\Env;
 
 class DefaultMessageContext implements MessageContext
 {
-    private $m_messageTree;
-
     private $m_sender;
 
     private $m_tree;
@@ -38,7 +36,7 @@ class DefaultMessageContext implements MessageContext
         $this->m_stack = new \SplStack();
         $this->m_length = 0;
 
-        $this->m_messageTree = new DefaultMessageTree($domain, $hostName, $ipAddress);
+        $this->m_tree = new DefaultMessageTree($domain, $hostName, $ipAddress);
     }
 
     public function init()
@@ -57,7 +55,7 @@ class DefaultMessageContext implements MessageContext
     public function add($message)
     {
         if ($this->m_stack->isEmpty()) {
-            $tree = $this->m_messageTree->copy();
+            $tree = $this->m_tree->copy();
             $tree->setMessage($message);
             $this->flush($tree);
         } else {
@@ -76,8 +74,9 @@ class DefaultMessageContext implements MessageContext
             if ($this->m_stack->isEmpty()) {
                 $tree = $this->m_tree->copy();
 
-                $m_tree->setMessageId(null);
-                $m_tree->setMessage(null);
+                $this->m_tree->setMessageId(null);
+                $this->m_tree->setMessage(null);
+                $tree->setMessage($transaction);
                 $messageManger->flush($tree);
                 return true;
             }
@@ -99,12 +98,12 @@ class DefaultMessageContext implements MessageContext
 
     public function getTree()
     {
-        return $this->m_messageTree;
+        return $this->m_tree;
     }
 
     public function setTree($messageTree)
     {
-        $this->m_messageTree = $messageTree;
+        $this->m_tree = $messageTree;
     }
 
     public function flush($tree)

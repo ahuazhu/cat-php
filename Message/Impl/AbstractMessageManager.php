@@ -11,6 +11,7 @@ use Config\Config;
 use Message\MessageManager;
 use Message\peek;
 use Message\Transaction;
+use Transfer\Impl\SingleThreadSender;
 use Utils\NetUtil;
 
 abstract class AbstractMessageManager implements MessageManager
@@ -42,7 +43,7 @@ abstract class AbstractMessageManager implements MessageManager
         $ctx = $this->getContext();
 
         if ($ctx != null && $transaction->isStandalone()) {
-            if ($ctx . end($this, $transaction)) {
+            if ($ctx->end($this, $transaction)) {
                 $this->removeLocalContext();
             }
         }
@@ -105,6 +106,17 @@ abstract class AbstractMessageManager implements MessageManager
         return $this->m_domain;
     }
 
+
+    public function flush($messageTree)
+    {
+        if ($messageTree->getMessageId() == null) {
+            $messageTree->setMessageId(DefaultMessageIdFactory::getNextId());
+        }
+
+        $sender = new SingleThreadSender();
+        $sender->send($messageTree);
+    }
+
     private function getContext()
     {
         if ($this->getLocalContext() == null) {
@@ -114,6 +126,7 @@ abstract class AbstractMessageManager implements MessageManager
         return $this->getLocalContext();
 
     }
+
 
     protected abstract function getLocalContext();
 

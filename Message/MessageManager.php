@@ -67,4 +67,6 @@ interface MessageManager
      *
      */
     public function getDomain();
+
+    public function flush($messageTree);
 }

@@ -27,7 +27,7 @@ class Config
     public static function getServers() {
         self::checkInit();
 //        return self::$servers;
-        return [["10.66.13.115", 2280],["192.168.7.72", 2280],];
+        return [["127.0.0.1", 54321],["192.168.7.72", 2280],];
     }
 
 

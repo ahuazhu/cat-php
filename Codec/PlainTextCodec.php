@@ -17,6 +17,8 @@ class PlainTextCodec implements MessageCodec
     public function encode($messageTree)
     {
         $header = $this->encodeHeader($messageTree);
+        var_dump($header);
+
         $body = $this->encodeBody($messageTree);
 
         return $header . $body;
@@ -51,7 +53,16 @@ class PlainTextCodec implements MessageCodec
     public function encodeMessage($message)
     {
 
+        echo 'HAHHH\n';
+
+        echo $message == null;
+
+        var_dump($message);
+
         if ($message instanceof Transaction) {
+
+            echo 'It\'s a transaction here \n';
+
             $data = '';
 
             $transaction = $message;

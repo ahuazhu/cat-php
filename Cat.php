@@ -17,6 +17,9 @@ class Cat
 
     public static function newTransaction($type, $name)
     {
+        if (self::$messageProducer == null) {
+            self::init();
+        }
         return self::$messageProducer->newTransaction($type, $name);
     }
 
