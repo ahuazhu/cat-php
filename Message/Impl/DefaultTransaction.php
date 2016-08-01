@@ -28,6 +28,7 @@ class DefaultTransaction extends AbstractMessage implements Transaction
         parent::__construct($type, $name, $messageManager);
         $this->m_standalone = true;
         $this->m_durationStart = TimeUtil::currentTimeInMicro();
+        echo 'Type: ' . $type . ' Name: ' . $name . ' Timestamp: '. $this->m_durationStart . ' '. TimeUtil::format($this->m_durationStart/1000). "\n";
     }
 
     public function complete()

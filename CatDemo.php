@@ -42,22 +42,28 @@ class TransactionTest implements Demo
 {
     public function run()
     {
-        $transaction = Cat::newTransaction("parentType", "parentName");
-        sleep(1);
+        $transaction = Cat::newTransaction("URL", "/hello/world");
 
         {
-            $t2 = Cat::newTransaction('subtype', 'subName');
+            $t1 = Cat::newTransaction('Invoke', 'method1()');
+            sleep(2);
+            $t1->setStatus(\Message\Message::SUCCESS);
+            $t1->addData("Hello", "world");
+            $t1->complete();
+        }
+
+        {
+            $t2 = Cat::newTransaction('Invoke', 'method2()');
             sleep(2);
             $t2->setStatus(\Message\Message::SUCCESS);
             $t2->complete();
         }
 
         {
-            $t3 = Cat::newTransaction('subtype2', 'subName2');
+            $t3 = Cat::newTransaction('Invoke', 'method3()');
             sleep(1);
-
             {
-                $t4 = Cat::newTransaction('subsubtype', 'subsubName');
+                $t4 = Cat::newTransaction('Invoke', 'method4()');
                 sleep(2);
                 $t4->setStatus(\Message\Message::SUCCESS);
                 $t4->complete();
@@ -68,6 +74,7 @@ class TransactionTest implements Demo
         }
 
         $transaction->setStatus(\Message\Message::SUCCESS);
+        $transaction->addData("Hello, world!");
         $transaction->complete();
     }
 }

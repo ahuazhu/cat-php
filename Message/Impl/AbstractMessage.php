@@ -38,11 +38,12 @@ abstract class AbstractMessage implements Message
     }
 
 
-    public function addData($key, $value)
+    public function addData($key, $value = null)
     {
         if ($key != null) {
 
-            $pair = $key . "=" . $value;
+            $pair = $key;
+            if ($value!= null) $pair.= "=" . $value;
 
             if ($this->m_data == null) {
                 $this->m_data = $pair;
