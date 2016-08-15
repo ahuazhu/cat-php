@@ -13,7 +13,6 @@ function __autoload($class)
 }
 
 
-
 class ExceptionTest
 {
     function methodThrowsException()
@@ -34,8 +33,8 @@ class ExceptionTest
 }
 
 
-$test = new ExceptionTest();
-$test->run();
+//$test = new ExceptionTest();
+//$test->run();
 
 class TransactionTest
 {
@@ -78,6 +77,19 @@ class TransactionTest
     }
 }
 
+class MetricDemo
+{
+    public function run()
+    {
+        Cat::logMetricForCount("Amount");
 
-$test = new TransactionTest();
-$test->run();
+    }
+}
+
+$metricTest = new MetricDemo();
+
+$metricTest->run();
+
+//
+//$test = new TransactionTest();
+//$test->run();

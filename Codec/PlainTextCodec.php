@@ -8,6 +8,7 @@ namespace Codec;
 
 
 use Message\Event;
+use Message\Metric;
 use Message\Transaction;
 use Utils\TimeUtil;
 
@@ -72,6 +73,8 @@ class PlainTextCodec implements MessageCodec
             return $data;
         } else if ($message instanceof Event) {
             return $this->encodeLine($message, 'E', Policy::DEFAULT_POLICY);
+        } else if ($message instanceof Metric) {
+            return $this->encodeLine($message, 'M', Policy::DEFAULT_POLICY);
         } else {
             throw new \RuntimeException("Unsupported message type: ");
         }

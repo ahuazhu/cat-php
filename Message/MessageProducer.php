@@ -11,4 +11,6 @@ interface MessageProducer
 {
 
     public function newEvent($type, $name);
+
+    public function newMetric($type, $name);
 }

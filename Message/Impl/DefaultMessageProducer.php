@@ -30,6 +30,14 @@ class DefaultMessageProducer implements MessageProducer
         return $transaction;
     }
 
+    public function newMetric($type, $name)
+    {
+        $this->checkInit();
+        $metric = new DefaultMetric(isset($type) ? $type : "", $name, $this->m_messageManager);
+//        $this->m_messageManager->getThreadLocalMessageTree()->setSample(false);
+        return $metric;
+    }
+
 
     public function checkInit()
     {
@@ -40,7 +48,6 @@ class DefaultMessageProducer implements MessageProducer
             $this->m_messageManager->setUp();
         }
     }
-
 
     public function init()
     {

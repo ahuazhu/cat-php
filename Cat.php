@@ -44,9 +44,9 @@ class Cat
         $event->complete();
     }
 
-    public static function logMetricForCount($name, $quantity = 1)
+    public static function logMetricForCount($type, $name='C', $quantity = 1)
     {
-        //TODO implement logMetricForCount
+        self::logMetricInternal($type, $name, '' . $quantity);
     }
 
     public static function logMetricForDuration($name, $durationInMillis)
@@ -61,6 +61,21 @@ class Cat
     }
 
 
+    private static function logMetricInternal($type, $name, $keyValuePairs)
+    {
+        if (self::$messageProducer == null) {
+            self::init();
+        }
+
+        $metric = self::$messageProducer->newMetric($type, $name, $keyValuePairs);
+
+        if (isset($keyValuePairs)) {
+            $metric->addData($keyValuePairs);
+        }
+
+        $metric->setStatus($name);
+        $metric->complete();
+    }
 
 
     public static function newEvent($type, $name)
