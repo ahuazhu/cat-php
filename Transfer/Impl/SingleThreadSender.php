@@ -38,7 +38,7 @@ class SingleThreadSender implements Sender
         var_dump($_data);
 
         //TODO can't access network, so mock the server instead.
-        list($ip, $port) = $this->fetchRouter($messageTree->getDomain(), $messageTree->getIpAddress());
+//        list($ip, $port) = $this->fetchRouter($messageTree->getDomain(), $messageTree->getIpAddress());
 
         $ip = '127.0.0.1';
         $port = 54321;
@@ -58,6 +58,7 @@ class SingleThreadSender implements Sender
         list($ip,) = Config::getServers()[0];
 
         $url = sprintf($this->ROUTER_URL_TEMP, $ip, 8080, $domain, $ipAddress);
+
         $content = file_get_contents($url);
 
         $json = json_decode($content, true);

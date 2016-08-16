@@ -81,7 +81,8 @@ class MetricDemo
 {
     public function run()
     {
-        Cat::logMetricForCount("Amount");
+        Cat::logMetricForCount("支付笔数");
+        Cat::logMetricForSum("支付总额", 100.5);
 
     }
 }
