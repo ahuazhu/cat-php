@@ -7,7 +7,7 @@
 namespace Message\Impl;
 
 
-use Utils\TimeUtil;
+use Utils\Env;
 
 class IndexProducer
 {
@@ -16,8 +16,8 @@ class IndexProducer
 
     public function __construct($version)
     {
-        $this->m_currentIndex = TimeUtil::currentTimeInSecond() & 0x00fff;
-        $this->m_version = $version;
+//        $this->m_currentIndex = TimeUtil::currentTimeInSecond() & 0x00fff;
+//        $this->m_version = $version;
 
     }
 
@@ -28,6 +28,14 @@ class IndexProducer
 
     public function nextIndex()
     {
-        return ++ $this->m_currentIndex;
+        if (Env::isLinux()) {
+            $nano = intval(system('date +%N'));
+            list($_, $sec) = explode(" ", microtime());
+
+            return (($sec % 3600) << 20) | ($nano >> 20);
+        } else {
+            list($usec, $sec) = explode(" ", microtime());
+            return (($sec % 3600) << 20) | ($usec * 1024 * 1024);
+        }
     }
 }

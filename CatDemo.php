@@ -40,7 +40,7 @@ class TransactionTest
 {
     public function run()
     {
-        $transaction = Cat::newTransaction("URL", "/hello/world");
+        $transaction = Cat::newTransaction("URL", "/Test");
 
         {
             $t1 = Cat::newTransaction('Invoke', 'method1()');
@@ -87,10 +87,10 @@ class MetricDemo
     }
 }
 
-$metricTest = new MetricDemo();
-
-$metricTest->run();
-
+//$metricTest = new MetricDemo();
 //
-//$test = new TransactionTest();
-//$test->run();
+//$metricTest->run();
+
+
+$test = new TransactionTest();
+$test->run();

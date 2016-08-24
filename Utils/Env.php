@@ -12,4 +12,8 @@ class Env
     public static function isThreadSupport() {
         return false;
     }
+
+    public static function isLinux() {
+        return strcmp(PHP_OS, 'Linux') == 0;
+    }
 }
