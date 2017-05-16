@@ -70,7 +70,13 @@ class DefaultMessageContext implements MessageContext
     {
         if (!$this->m_stack->isEmpty()) {
             $current = $this->m_stack->pop();
-
+            
+            if ($transaction != $current) {
+                while ($transaction != $current && !$this->m_stack->isEmpty()) {
+					$current = $this->m_stack->pop();
+				}
+            }
+            
             if ($this->m_stack->isEmpty()) {
                 $tree = $this->m_tree->copy();
 
