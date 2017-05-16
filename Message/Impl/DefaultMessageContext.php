@@ -73,8 +73,8 @@ class DefaultMessageContext implements MessageContext
             
             if ($transaction != $current) {
                 while ($transaction != $current && !$this->m_stack->isEmpty()) {
-					$current = $this->m_stack->pop();
-				}
+			$current = $this->m_stack->pop();
+		}
             }
             
             if ($this->m_stack->isEmpty()) {
